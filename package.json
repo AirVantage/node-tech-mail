@@ -1,0 +1,14 @@
+{
+    "name": "node-tech-mail",
+    "version": "1.0.0",
+    "description": "A technical module used to send emails",
+    "main": "techMail.js",
+    "dependencies": {
+        "underscore": "^1.7.0",
+        "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.0.0",
+        "nodemailer": "^1.3.0",
+        "nodemailer-sendgrid-transport": "^0.1.0",
+        "email-templates": "^1.1.2",
+        "ejs": "^2.1.4"
+    }
+}
