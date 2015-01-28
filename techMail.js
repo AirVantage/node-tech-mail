@@ -1,6 +1,7 @@
 var _ = require("underscore");
 var nodemailer = require("nodemailer");
 var sgTransport = require("nodemailer-sendgrid-transport");
+var stubTransport = require("nodemailer-stub-transport");
 var emailTemplates = require('email-templates');
 var logger = require("node-tech-logger");
 
@@ -10,15 +11,22 @@ var logger = require("node-tech-logger");
  * @param  {String}     configuration.mail.sender
  */
 module.exports = function(configuration, templatesDir) {
-    var options = {
-        auth: {
-            api_user: configuration.mail.server.api_user,
-            api_key: configuration.mail.server.api_key
-        }
-    };
-    // Create reusable transporter object using SMTP transport
-    // No need to recreate the transporter object. You can use the same transporter object for all e-mails
-    var transporter = nodemailer.createTransport(sgTransport(options));
+    var transporter;
+
+    if (configuration.mail.stub_transport === false) {
+        var options = {
+            auth: {
+                api_user: configuration.mail.server.api_user,
+                api_key: configuration.mail.server.api_key
+            }
+        };
+        // Create reusable transporter object using SMTP transport
+        // No need to recreate the transporter object. You can use the same transporter object for all e-mails
+        transporter = nodemailer.createTransport(sgTransport(options));
+    } else {
+        logger.info("[tech-mail] Using stub transport");
+        transporter = nodemailer.createTransport(stubTransport());
+    }
 
     return {
         sendMail: function(options, locals) {
@@ -42,7 +50,11 @@ module.exports = function(configuration, templatesDir) {
                                 if (error) {
                                     logger.error(error);
                                 } else {
-                                    logger.info("Message status: " + info.message);
+                                    if (configuration.mail.stub_transport === false) {
+                                        logger.info("Message status:", info.message);
+                                    } else {
+                                        logger.info("Message response:", info.response.toString());
+                                    }
                                 }
                             });
                         }
