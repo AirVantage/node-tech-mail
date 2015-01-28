@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "A technical module used to send emails",
     "main": "techMail.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AirVantage/node-tech-mail.git"
+    },
     "dependencies": {
         "underscore": "^1.7.0",
         "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.0.0",
