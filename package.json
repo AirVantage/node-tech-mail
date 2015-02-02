@@ -1,19 +1,20 @@
 {
-  "name": "node-tech-mail",
-  "version": "1.1.0",
-  "description": "A technical module used to send emails",
-  "main": "techMail.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AirVantage/node-tech-mail.git"
-  },
-  "dependencies": {
-    "underscore": "^1.7.0",
-    "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.0.0",
-    "nodemailer": "^1.3.0",
-    "nodemailer-sendgrid-transport": "^0.1.0",
-    "nodemailer-stub-transport": "^0.1.5",
-    "email-templates": "^1.1.2",
-    "ejs": "^2.1.4"
-  }
+    "name": "node-tech-mail",
+    "version": "1.1.0",
+    "description": "Technical module used to wrap SendGrid APIs to send mails.",
+    "license": "MIT",
+    "main": "techMail.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AirVantage/node-tech-mail.git"
+    },
+    "dependencies": {
+        "ejs": "^2.1.4",
+        "email-templates": "^1.1.2",
+        "lodash": "^3.0.1",
+        "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#1.0.0",
+        "nodemailer": "^1.3.0",
+        "nodemailer-sendgrid-transport": "^0.1.0",
+        "nodemailer-stub-transport": "^0.1.5"
+    }
 }

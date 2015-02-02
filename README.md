@@ -1,2 +1,4 @@
 # node-tech-mail
-uses an SMPT transporter, and require templates to format messages.
+Technical module used to wrap SendGrid APIs to send mails.
+
+A directory of templates used to format messages is required.

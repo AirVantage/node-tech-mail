@@ -1,9 +1,9 @@
-var _ = require("underscore");
+var _ = require("lodash");
+var emailTemplates = require("email-templates");
+var logger = require("node-tech-logger");
 var nodemailer = require("nodemailer");
 var sgTransport = require("nodemailer-sendgrid-transport");
 var stubTransport = require("nodemailer-stub-transport");
-var emailTemplates = require('email-templates');
-var logger = require("node-tech-logger");
 
 /**
  * @param  {String}     configuration.mail.server.host
