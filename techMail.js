@@ -6,9 +6,10 @@ var sgTransport = require("nodemailer-sendgrid-transport");
 var stubTransport = require("nodemailer-stub-transport");
 
 /**
- * @param  {String}     configuration.mail.server.host
- * @param  {Integer}    configuration.mail.server.port
+ * @param  {String}     configuration.mail.server.user
+ * @param  {String}     configuration.mail.server.password
  * @param  {String}     configuration.mail.sender
+ * @param  {Boolean}    configuration.mail.stub_transport
  */
 module.exports = function(configuration, templatesDir) {
     var transporter;
@@ -16,8 +17,8 @@ module.exports = function(configuration, templatesDir) {
     if (configuration.mail.stub_transport === false) {
         var options = {
             auth: {
-                api_user: configuration.mail.server.api_user,
-                api_key: configuration.mail.server.api_key
+                api_user: configuration.mail.server.user,
+                api_key: configuration.mail.server.password
             }
         };
         // Create reusable transporter object using SMTP transport
