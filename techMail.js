@@ -54,7 +54,8 @@ module.exports = function(configuration, templatesDir) {
                                     if (configuration.mail.stub_transport === false) {
                                         logger.info("Message status:", info.message);
                                     } else {
-                                        logger.info("Message response:", info.response.toString());
+                                        logger.info("Message sent. Envelope: ", info.envelope);
+                                        logger.debug("Message response:", info.response.toString());
                                     }
                                 }
                             });
