@@ -25,7 +25,7 @@ module.exports = function(configuration, templatesDir) {
         // No need to recreate the transporter object. You can use the same transporter object for all e-mails
         transporter = nodemailer.createTransport(sgTransport(options));
     } else {
-        logger.info("[tech-mail] Using stub transport");
+        logger.info("Using stub transport");
         transporter = nodemailer.createTransport(stubTransport());
     }
 
@@ -34,11 +34,11 @@ module.exports = function(configuration, templatesDir) {
 
             emailTemplates(templatesDir, function(err, template) {
                 if (err) {
-                    logger.error(err);
+                    logger.error("Unable to configure the template engine... - Details:", err && err.stack || err);
                 } else {
                     template(options.template, locals, function(err, html, text) {
                         if (err) {
-                            logger.error(err);
+                            logger.error("Unable to render the template '" + options.template + "' - Details:", err && err.stack || err);
                         } else {
 
                             var mailOptions = _.extend({
@@ -47,9 +47,9 @@ module.exports = function(configuration, templatesDir) {
                                 text: text
                             }, options);
                             // Send mail with defined transport object
-                            transporter.sendMail(mailOptions, function(error, info) {
-                                if (error) {
-                                    logger.error(error);
+                            transporter.sendMail(mailOptions, function(err, info) {
+                                if (err) {
+                                    logger.error("Unable to sent email '" + mailOptions.template + "' to '" + mailOptions.to + "' - Details:", err && err.stack || err);
                                 } else {
                                     if (configuration.mail.stub_transport === false) {
                                         logger.info("Message status:", info.message);
