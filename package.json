@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-release": "^0.11.0",
+    "grunt-release": "^0.13.0",
     "grunt-tag": "^0.1.0"
   }
 }
