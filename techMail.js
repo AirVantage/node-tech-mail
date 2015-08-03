@@ -49,12 +49,12 @@ module.exports = function(configuration, templatesDir) {
                             // Send mail with defined transport object
                             transporter.sendMail(mailOptions, function(err, info) {
                                 if (err) {
-                                    logger.error("Unable to sent email '" + mailOptions.template + "' to '" + mailOptions.to + "' - Details:", err && err.stack || err);
+                                    logger.error("Unable to send email '" + mailOptions.template + "' to '" + mailOptions.to + "' - Details:", err && err.stack || err);
                                 } else {
                                     if (configuration.mail.stub_transport === false) {
-                                        logger.info("Message status:", info.message);
+                                        logger.info("Email '" + mailOptions.template + "' sent to '" + mailOptions.to + "'. Message status:", info.message);
                                     } else {
-                                        logger.info("Message sent. Envelope: ", info.envelope);
+                                        logger.info("Email '" + mailOptions.template + "' sent to '" + mailOptions.to + "'. Envelope:", info.envelope);
                                         logger.debug("Message response:", info.response.toString());
                                     }
                                 }
