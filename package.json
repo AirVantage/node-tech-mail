@@ -12,7 +12,7 @@
     "ejs": "^2.1.4",
     "email-templates": "^1.1.2",
     "lodash": "^3.2.0",
-    "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#2.x",
+    "node-tech-logger": "git://github.com/AirVantage/node-tech-logger.git#3.x",
     "nodemailer": "^1.3.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemailer-stub-transport": "^0.1.5"
