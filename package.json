@@ -1,6 +1,6 @@
 {
   "name": "node-tech-mail",
-  "version": "2.0.5",
+  "version": "3.0.0",
   "description": "Technical module used to wrap SendGrid APIs to send mails.",
   "license": "MIT",
   "main": "techMail.js",
