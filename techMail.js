@@ -41,7 +41,7 @@ module.exports = function(configuration, templatesDir) {
                             logger.error("Unable to render the template '" + options.template + "' - Details:", err && err.stack || err);
                         } else {
 
-                            var mailOptions = _.extend({
+                            var mailOptions = _.assignIn({
                                 from: configuration.mail.sender,
                                 html: html,
                                 text: text
