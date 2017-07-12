@@ -1,6 +1,6 @@
 {
   "name": "node-tech-mail",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Technical module used to wrap SendGrid APIs to send mails.",
   "license": "MIT",
   "main": "techMail.js",
@@ -32,10 +32,18 @@
       "node": true,
       "es6": true
     },
-    "extends": ["eslint:recommended"],
+    "extends": [
+      "eslint:recommended"
+    ],
     "rules": {
-      "linebreak-style": ["error", "unix"],
-      "max-params": ["warn", 3]
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "max-params": [
+        "warn",
+        3
+      ]
     }
   }
 }
